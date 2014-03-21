@@ -12,7 +12,7 @@ var list = {
       ctrl.list.map(function(post, index) {
         return m('div.post', [
           m('h3', [
-            m('a[href="' + post.url + '"].postlink', {config: m.route}, [
+            m('a[href="#' + post.url + '"].postlink', [
               m('span.date', post.date + ' - '),
               m('span.title', post.title)
             ])
@@ -32,7 +32,7 @@ var post = {
     var ctrl = this;
     m.request({
       method: 'GET',
-      url: '/blog/' + this.year + '/' + this.month + '/' + this.day + '/' + this.file + '/index.html',
+      url: baseUrl + 'blog/' + this.year + '/' + this.month + '/' + this.day + '/' + this.file + '/index.html',
       deserialize: function(v) {
         return v;
       }

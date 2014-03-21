@@ -2,6 +2,7 @@
 layout: default
 ---
 <script>
+var baseUrl = '{{site.baseurl}}';
 var appUrls = []
 {% for post in site.posts %}
   appUrls.push({url: '{{ post.url }}', title: '{{post.title}}', date: '{{post.date | date_to_string}}'});
