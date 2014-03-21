@@ -32,7 +32,7 @@ var post = {
     var ctrl = this;
     m.request({
       method: 'GET',
-      url: baseUrl + '/blog/' + this.year + '/' + this.month + '/' + this.day + '/' + this.file + '/index.html',
+      url: 'blog/' + this.year + '/' + this.month + '/' + this.day + '/' + this.file + '/index.html',
       deserialize: function(v) {
         return v;
       }
