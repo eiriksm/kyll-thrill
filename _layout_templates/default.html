@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      {% if site.env == 'development' %}
+      <link rel="stylesheet" href="/styles/main.css">
+      <link rel="stylesheet" href="/styles/syntax.css">
+      {% else %}
+      <!-- smoosh -->
+      <link rel="stylesheet" href="../build/app.min.css">
+      <!-- endsmoosh -->
+      {% endif %}
+      <meta name="MobileOptimized" content="width">
+      <meta name="HandheldFriendly" content="true">
+      <meta name="viewport" content="width=device-width">
+      <meta name="viewport" content="initial-scale=1">
+      <meta http-equiv="cleartype" content="on">
+      <title>{{site.title}}</title>
+    </head>
+    <body>
+      <header>
+        <h1 class="site-title"><a href="/">{{site.title}}</a></h1>
+      </header>
+      <div id="content"></div>
+      {{content}}
+      {% if site.env == 'development' %}
+        <script src="/js/lib/mithril.js"></script>
+        <script src="/js/src/app.js"></script>
+      {% else %}
+
+        <!-- smoosh -->
+        <script src="../build/app.min.js"></script>
+        <!-- endsmoosh -->
+      {% endif %}
+
+      <footer>
+        Created by <a href="https://twitter.com/orkj">eiriksm</a>. <a href="https://github.com/eiriksm/kyll-thrill">Source code</a>.
+      </footer>
+    </body>
+
+</html>
