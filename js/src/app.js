@@ -7,7 +7,6 @@ var list = {
     }
   },
   view: function(ctrl) {
-    //c.innerHTML = '';
     return m('div.content', [
       ctrl.list.map(function(post, index) {
         return m('div.post', [
