@@ -1,6 +1,8 @@
 kyll-thrill
 ===========
 
+It's a blog tool that clocks in at 5kb and 1 HTTP request.
+
 ## Getting started.
 - Clone this repo.
 - Edit the appropriate settings (_config.yml)
