@@ -1,5 +1,7 @@
 kyll-thrill
 ===========
+[![Build Status](https://secure.travis-ci.org/eiriksm/kyll-thrill.png)](http://travis-ci.org/eiriksm/kyll-thrill)
+[![Dependency Status](https://david-dm.org/eiriksm/kyll-thrill.png)](https://david-dm.org/eiriksm/kyll-thrill)
 
 It's a blog tool that clocks in at 5kb and 1 HTTP request.
 
