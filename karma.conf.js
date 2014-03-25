@@ -71,6 +71,9 @@ module.exports = function(config) {
       'karma-mocha',
       'karma-phantomjs-launcher',
       'karma-coverage'
-    ]
+    ],
+    coverageReporter: {
+      type : 'lcov'
+    }
   });
 };

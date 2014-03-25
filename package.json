@@ -36,6 +36,7 @@
     "chai": "~1.9.1",
     "karma-phantomjs-launcher": "~0.1.2",
     "karma-coverage": "~0.2.1",
-    "karma": "~0.12.1"
+    "karma": "~0.12.1",
+    "coveralls": "^2.10.0"
   }
 }
