@@ -24,6 +24,6 @@ describe('App functionality', function(){
     setTimeout(function() {
       assert.equal('#/blog/2014/03/21/power-of', window.location.hash);
       done();
-    }, 1);
+    }, 10);
   });
 });
