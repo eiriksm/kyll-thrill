@@ -61,7 +61,12 @@ module.exports = function(config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['PhantomJS'],
+    browsers: [
+      'PhantomJS',
+
+      // Uncomment for easier local development.
+      //'Chrome'
+    ],
 
 
     // Continuous Integration mode
@@ -70,6 +75,9 @@ module.exports = function(config) {
     plugins: [
       'karma-mocha',
       'karma-phantomjs-launcher',
+
+      // Also uncomment this for local dev.
+      //'karma-chrome-launcher',
       'karma-coverage'
     ],
     coverageReporter: {
