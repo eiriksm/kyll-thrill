@@ -1,0 +1,6 @@
+{{content}}
+{% if site.env == 'development' %}
+  <script src="/js/posts.js"></script>
+{% else %}
+    <script>"undefined"==typeof c&&(window&&window.localStorage&&localStorage.setItem("redirect",window.location.pathname),window.location.href="/");</script>
+  {% endif %}

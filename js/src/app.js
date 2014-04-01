@@ -1,6 +1,13 @@
 var c = document.getElementById('content');
 var list = {
   controller: function() {
+    if (window && window.localStorage && window.localStorage.getItem('redirect')) {
+      var u = window.localStorage.getItem('redirect');
+      window.localStorage.clear('redirect');
+      setTimeout(function() {
+        m.route(u);
+      }, 10);
+    }
     this.list = [];
     for (var i = 0; i < appUrls.length; i++) {
       this.list.push(appUrls[i]);
@@ -11,7 +18,7 @@ var list = {
       ctrl.list.map(function(post, index) {
         return m('div.post', [
           m('h3', [
-            m('a[href="#' + post.url + '"].postlink', [
+            m('a[href="' + post.url + '"].postlink', {config: m.route}, [
               m('span.date', post.date + ' - '),
               m('span.title', post.title)
             ])
@@ -46,8 +53,9 @@ var post = {
     ]);
   }
 };
-m.route.mode = 'hash';
+m.route.mode = 'pathname';
 m.route(c, "/home", {
   "/home": list,
-  '/blog/:year/:month/:day/:file': post
+  '/blog/:year/:month/:day/:file': post,
+  '/blog/:year/:month/:day/:file/': post
 });

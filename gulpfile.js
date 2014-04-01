@@ -9,6 +9,7 @@ var clean = require('gulp-clean');
 
 var paths = {
   js: ['js/lib/*.js', 'js/src/*.js'],
+  posts: ['js/posts.js'],
   css: ['styles/*.css']
 };
 
@@ -17,6 +18,14 @@ gulp.task('scripts', function() {
   return gulp.src(paths.js)
     .pipe(uglify())
     .pipe(concat('app.min.js'))
+    .pipe(gulp.dest('build/'));
+});
+
+gulp.task('postscript', function() {
+  // Minify and copy post.js
+  return gulp.src(paths.posts)
+    .pipe(uglify())
+    .pipe(concat('posts.min.js'))
     .pipe(gulp.dest('build/'));
 });
 
@@ -41,5 +50,5 @@ gulp.task('clean', function() {
 });
 
 gulp.task('default', ['clean'], function() {
-  gulp.start('css', 'scripts');
+  gulp.start('css', 'scripts', 'postscript');
 });

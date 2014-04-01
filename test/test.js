@@ -22,8 +22,10 @@ describe('App functionality', function(){
     }
     // Do this async, so we are sure the event triggers.
     setTimeout(function() {
-      assert.equal('#/blog/2014/03/21/power-of', window.location.hash);
+      assert.equal('/blog/2014/03/21/power-of', window.location.pathname);
       done();
     }, 10);
   });
 });
+
+// TODO: Test redirect. Or just make it better.

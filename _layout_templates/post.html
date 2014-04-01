@@ -1,0 +1,8 @@
+{{content}}
+{% if site.env == 'development' %}
+  <script src="/js/posts.js"></script>
+{% else %}
+  <!-- smoosh -->
+  <script src="../build/posts.min.js"></script>
+  <!-- endsmoosh -->
+{% endif %}
