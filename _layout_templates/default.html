@@ -2,8 +2,8 @@
 <html>
     <head>
       {% if site.env == 'development' %}
-      <link rel="stylesheet" href="/styles/main.css">
-      <link rel="stylesheet" href="/styles/syntax.css">
+      <link rel="stylesheet" href="{{site.baseurl}}/styles/main.css">
+      <link rel="stylesheet" href="{{site.baseurl}}/styles/syntax.css">
       {% else %}
       <!-- smoosh -->
       <link rel="stylesheet" href="../build/app.min.css">

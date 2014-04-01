@@ -55,6 +55,7 @@ var post = {
 };
 m.route.mode = 'pathname';
 var routeConf = {};
-routeConf[baseUrl + "/"] = list;
-routeConf[baseUrl + '/blog/:year/:month/:day/:file'] = post;
-m.route(c, baseUrl + "/", routeConf);
+routeConf['/'] = list;
+routeConf['/blog/:year/:month/:day/:file'] = post;
+routeConf['/blog/:year/:month/:day/:file/'] = post;
+m.route(c, '/', routeConf);

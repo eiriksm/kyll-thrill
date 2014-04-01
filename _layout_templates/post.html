@@ -1,6 +1,9 @@
 {{content}}
+<script>
+  var baseUrl = "{{baseurl}}";
+</script>
 {% if site.env == 'development' %}
-  <script src="/js/posts.js"></script>
+  <script src="{{site.baseurl}}/js/posts.js"></script>
 {% else %}
   <!-- smoosh -->
   <script src="../build/posts.min.js"></script>
