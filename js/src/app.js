@@ -1,4 +1,7 @@
 var c = document.getElementById('content');
+if (!baseUrl || baseUrl === '') {
+  baseUrl = '/';
+}
 var list = {
   controller: function() {
     if (window && window.localStorage && window.localStorage.getItem('redirect')) {
@@ -18,7 +21,7 @@ var list = {
       ctrl.list.map(function(post, index) {
         return m('div.post', [
           m('h3', [
-            m('a[href="' + baseUrl + post.url + '"].postlink', {config: m.route}, [
+            m('a[href="' + post.url + '"].postlink', {config: m.route}, [
               m('span.date', post.date + ' - '),
               m('span.title', post.title)
             ])
@@ -38,7 +41,7 @@ var post = {
     var ctrl = this;
     m.request({
       method: 'GET',
-      url: 'blog/' + this.year + '/' + this.month + '/' + this.day + '/' + this.file + '/index.html',
+      url: baseUrl + 'blog/' + this.year + '/' + this.month + '/' + this.day + '/' + this.file + '/index.html',
       deserialize: function(v) {
         return v;
       }
@@ -55,13 +58,8 @@ var post = {
 };
 m.route.mode = 'pathname';
 var routeConf = {};
-if (!baseUrl || baseUrl === '') {
-  baseUrl = '/';
-}
 routeConf['/'] = list;
 routeConf[baseUrl] = list;
 routeConf['/blog/:year/:month/:day/:file'] = post;
 routeConf['/blog/:year/:month/:day/:file/'] = post;
-routeConf[baseUrl + '/blog/:year/:month/:day/:file'] = post;
-routeConf[baseUrl + '/blog/:year/:month/:day/:file/'] = post;
 m.route(c, baseUrl, routeConf);
