@@ -62,4 +62,6 @@ routeConf['/'] = list;
 routeConf[baseUrl] = list;
 routeConf['/blog/:year/:month/:day/:file'] = post;
 routeConf['/blog/:year/:month/:day/:file/'] = post;
+routeConf[baseUrl + '/blog/:year/:month/:day/:file'] = post;
+routeConf[baseUrl + '/blog/:year/:month/:day/:file/'] = post;
 m.route(c, baseUrl, routeConf);
