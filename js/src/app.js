@@ -18,7 +18,7 @@ var list = {
       ctrl.list.map(function(post, index) {
         return m('div.post', [
           m('h3', [
-            m('a[href="' + post.url + '"].postlink', {config: m.route}, [
+            m('a[href="' + baseUrl + post.url + '"].postlink', {config: m.route}, [
               m('span.date', post.date + ' - '),
               m('span.title', post.title)
             ])
