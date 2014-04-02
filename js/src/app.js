@@ -38,7 +38,7 @@ var post = {
     var ctrl = this;
     m.request({
       method: 'GET',
-      url: baseUrl + 'blog/' + this.year + '/' + this.month + '/' + this.day + '/' + this.file + '/index.html',
+      url: baseUrl + '/blog/' + this.year + '/' + this.month + '/' + this.day + '/' + this.file + '/index.html',
       deserialize: function(v) {
         return v;
       }
@@ -56,9 +56,9 @@ var post = {
 m.route.mode = 'pathname';
 var routeConf = {};
 routeConf['/'] = list;
-routeConf[baseUrl] = list;
+routeConf[baseUrl + '/'] = list;
 routeConf['/blog/:year/:month/:day/:file'] = post;
 routeConf['/blog/:year/:month/:day/:file/'] = post;
 routeConf[baseUrl + '/blog/:year/:month/:day/:file'] = post;
 routeConf[baseUrl + '/blog/:year/:month/:day/:file/'] = post;
-m.route(c, '/', routeConf);
+m.route(c, baseUrl + '/', routeConf);
