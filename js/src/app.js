@@ -1,7 +1,4 @@
 var c = document.getElementById('content');
-if (!baseUrl || baseUrl === '') {
-  baseUrl = '/';
-}
 var list = {
   controller: function() {
     if (window && window.localStorage && window.localStorage.getItem('redirect')) {
@@ -62,4 +59,6 @@ routeConf['/'] = list;
 routeConf[baseUrl] = list;
 routeConf['/blog/:year/:month/:day/:file'] = post;
 routeConf['/blog/:year/:month/:day/:file/'] = post;
-m.route(c, baseUrl, routeConf);
+routeConf[baseUrl + '/blog/:year/:month/:day/:file'] = post;
+routeConf[baseUrl + '/blog/:year/:month/:day/:file/'] = post;
+m.route(c, '/', routeConf);
