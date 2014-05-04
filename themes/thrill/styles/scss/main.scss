@@ -54,7 +54,6 @@ a {
   padding: 1%;
   margin: 2%;
   transition: background-color .25s ease-in-out;
-  -webkit-transition: background-color .25s ease-in-out;
   border-radius: 5px;
   &:hover {
     background-color: lighten($secondary, 20%);
@@ -80,7 +79,6 @@ header {
 }
 h1.site-title a {
   color: $primary;
-  -webkit-transition: font-size .25s ease-in-out;
   transition: color .25s ease-in-out;
   height: 160px;
   &:hover {

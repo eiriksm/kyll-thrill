@@ -71,7 +71,7 @@ header {
 
 h1.site-title a {
   color: #0084D9;
-  -webkit-transition: font-size 0.25s ease-in-out;
+  -webkit-transition: color 0.25s ease-in-out;
   transition: color 0.25s ease-in-out;
   height: 160px; }
   h1.site-title a:hover {

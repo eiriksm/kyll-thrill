@@ -5,6 +5,7 @@ var minifyCSS = require('gulp-minify-css');
 var smoosher = require('gulp-smoosher');
 var clean = require('gulp-clean');
 var sass = require('gulp-sass');
+var prefix = require('gulp-autoprefixer');
 var theme;
 
 // Read config from jekyll config.
@@ -30,6 +31,7 @@ gulp.task('scss', function() {
       error: function(err) {
       }
     }))
+    .pipe(prefix("last 1 version", "> 1%", "ie 8", "ie 7"))
     .pipe(gulp.dest('themes/' + theme + '/styles/'));
 });
 
