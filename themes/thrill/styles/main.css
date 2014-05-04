@@ -46,8 +46,8 @@ a:active, a:visited, a {
 .post {
   padding: 1%;
   margin: 2%;
-  transition: background-color 0.25s ease-in-out;
   -webkit-transition: background-color 0.25s ease-in-out;
+  transition: background-color 0.25s ease-in-out;
   border-radius: 5px; }
   .post:hover {
     background-color: #e5f8ff; }
