@@ -1,0 +1,13 @@
+$primary: #0084D9;
+$secondary: #7FDBFF;
+$black: #374751;
+$grey: lighten($black, 20%);
+
+%button {
+  background: #3498db;
+  color: #f6f6f6!important;
+  text-shadow: 0 1px 0 #3498db;
+  box-shadow: 0 .25em 0 0 #2077b2;
+  border-radius: 5px;
+  padding: 10px;
+}

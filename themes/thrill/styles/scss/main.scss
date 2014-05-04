@@ -1,3 +1,5 @@
+@import "variables";
+
 /*****************************************************************************/
 /*
 /* Common
@@ -45,21 +47,29 @@ a:active,
 a:visited,
 a {
   text-decoration: none;
-  color: #111;
-  border-bottom: 1px #7FDBFF solid;
+  color: $black;
+  border-bottom: 1px $secondary solid;
+}
+.post {
+  padding: 1%;
+  margin: 2%;
+  transition: background-color .25s ease-in-out;
+  -webkit-transition: background-color .25s ease-in-out;
+  border-radius: 5px;
+  &:hover {
+    background-color: lighten($secondary, 20%);
+  }
+}
+.date {
+  color: $grey;
+  font-size: .8rem;
 }
 .postlink {
-  padding: 5%;
   display: block;
-  background: #ddd;
-  margin: 2px;
   border: none;
+  color: $black;
 }
-.postlink:hover {
-  background-color: #7FDBFF;
-  transition: background-color .3s ease-in-out;
-  -webkit-transition: background-color .3s ease-in-out;
-}
+
 footer {
   margin: 3% 1%;
   padding: 1% 5%;
@@ -69,5 +79,11 @@ header {
   text-align: center;
 }
 h1.site-title a {
-  color: #0074D9;
+  color: $primary;
+  -webkit-transition: font-size .25s ease-in-out;
+  transition: color .25s ease-in-out;
+  height: 160px;
+  &:hover {
+    color: $black;
+  }
 }

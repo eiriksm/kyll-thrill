@@ -2,8 +2,8 @@
 <html>
     <head>
       {% if site.env == 'development' %}
-      <link rel="stylesheet" href="{{site.baseurl}}/styles/main.css">
-      <link rel="stylesheet" href="{{site.baseurl}}/styles/syntax.css">
+      <link rel="stylesheet" href="{{site.baseurl}}/themes/{{site.theme}}/styles/main.css">
+      <link rel="stylesheet" href="{{site.baseurl}}/themes/{{site.theme}}/styles/syntax.css">
       {% else %}
       <!-- smoosh -->
       <link rel="stylesheet" href="../build/app.min.css">
@@ -28,7 +28,7 @@
       {% else %}
 
         <!-- smoosh -->
-        <script src="../build/app.min.js"></script>
+        <script src="../../../build/app.min.js"></script>
         <!-- endsmoosh -->
       {% endif %}
 

@@ -17,11 +17,11 @@ var list = {
     return m('div.content', [
       ctrl.list.map(function(post, index) {
         return m('div.post', [
-          m('h3', [
-            m('a[href="' + baseUrl + post.url + '"].postlink', {config: m.route}, [
-              m('span.date', post.date + ' - '),
+          m('a[href="' + baseUrl + post.url + '"].postlink', {config: m.route}, [
+            m('h2', [
               m('span.title', post.title)
-            ])
+            ]),
+            m('span.date', post.date)
           ])
         ]);
       })

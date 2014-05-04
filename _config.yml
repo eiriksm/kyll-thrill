@@ -6,3 +6,9 @@ title: kyll-thrill
 permalink: "/blog/:year/:month/:day/:title"
 exclude: [node_modules]
 baseurl: /kyll-thrill
+
+# Use this for google analytics.
+# ga_id: UA-XXXX
+
+# Select a theme. Default: 'thrill'
+theme: thrill
