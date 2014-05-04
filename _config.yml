@@ -13,7 +13,7 @@ description: Kyll-thrill. Mithril.js + jekyll.
 url: https://eiriksm.github.io/kyll-thrill
 
 # Use this for google analytics.
-# ga_id: UA-XXXX
+ga_id: UA-49256770-1
 
 # Use this for disqus
 # disqus_shortname: myshortname
