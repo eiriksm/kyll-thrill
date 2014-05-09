@@ -71,6 +71,14 @@ gulp.task('clean', function() {
     .pipe(clean());
 });
 
+// Watch
+gulp.task('watch', function() {
+
+  // Watch .scss files
+  gulp.watch('themes/' + theme + '/styles/scss/main.scss', ['scss']);
+
+});
+
 gulp.task('default', ['clean', 'scss'], function() {
   gulp.start('css', 'scripts', 'postscript');
 });
