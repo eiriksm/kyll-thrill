@@ -11,10 +11,10 @@ Yeah, the name is corny, I admit that. It's basically [jekyll](jekyllrb.com) and
 Good point. My bad, I guess.
 
 ##So what is it?
-Yeah, so mithril immediately caught my attention as it is a super slim javascript framework. And I always wanted a blog tool that was super fast, no dependencies, and, most important: 1 HTTP request.
+Yeah, so [mithril](http://lhorie.github.io/mithril/) immediately caught my attention as it is a super slim javascript framework. And I always wanted a blog tool that was super fast, few dependencies, and, most important: 1 HTTP request.
 
 ##OK, that's just silly. Or?
-Yeah, well, some experiments (citation needed) has shown that reducing the number of HTTP requests is the most important performance factor on mobile. So I stuck to one. And hosting is stable and free through github, and writing markdown posts with jekyll is a breeze.
+Yeah, well, some experiments has shown that reducing the number of HTTP requests is the most important performance factor on mobile. So I stuck to one. And hosting is stable and free through github, and writing markdown posts with jekyll is a breeze.
 
 ##But it looks kind of dull!
 I agree. I'm no designer. But it's fast, right?
