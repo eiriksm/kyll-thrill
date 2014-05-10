@@ -1,9 +1,9 @@
 kyll-thrill
 ===========
 [![Build Status](https://travis-ci.org/eiriksm/kyll-thrill.svg?branch=master)](https://travis-ci.org/eiriksm/kyll-thrill)
-[![Coverage Status](https://coveralls.io/repos/eiriksm/kyll-thrill/badge.png?branch=master)](https://coveralls.io/r/eiriksm/kyll-thrill?branch=master)
+[![Coverage Status](https://img.shields.io/coveralls/eiriksm/kyll-thrill.svg)](https://coveralls.io/r/eiriksm/kyll-thrill?branch=master)
 [![devDependency Status](https://david-dm.org/eiriksm/kyll-thrill/dev-status.svg)](https://david-dm.org/eiriksm/kyll-thrill#info=devDependencies)
-[![Code Climate](https://codeclimate.com/github/eiriksm/kyll-thrill.png)](https://codeclimate.com/github/eiriksm/kyll-thrill)
+[![Code Climate](http://img.shields.io/codeclimate/github/eiriksm/kyll-thrill.svg)](https://codeclimate.com/github/eiriksm/kyll-thrill)
 
 It's a blog tool that clocks in at 5kb and 1 HTTP request.
 
