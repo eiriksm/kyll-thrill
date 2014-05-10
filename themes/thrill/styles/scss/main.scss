@@ -10,10 +10,12 @@
 * {
   margin: 0;
   padding: 0;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
 }
 
 html, body {
-  height: 100%;
+  min-height: 100%;
 }
 img {
   max-width: 100%;
@@ -36,16 +38,20 @@ p {
   padding: 5px;
 }
 #content {
-  padding: 3% 0;
+  padding: 1% 0;
+  z-index: 1;
+  background: #fff;
+  margin-top: 120px;
+  margin-bottom: 120px;
 }
 .content {
   width: 98%;
   margin: 0 1%;
   margin: 0 auto;
 }
+a,
 a:active,
-a:visited,
-a {
+a:visited {
   text-decoration: none;
   color: $black;
   border-bottom: 1px $secondary solid;
@@ -53,35 +59,81 @@ a {
 .post {
   padding: 1%;
   margin: 2%;
-  transition: background-color .25s ease-in-out;
   border-radius: 5px;
-  &:hover {
-    background-color: lighten($secondary, 20%);
+  :hover {
+    .readmore {
+      color: $black;
+    }
+    span.title {
+      border-bottom: 1px solid $danger;
+    }
+  }
+  span.title {
+    border-bottom: 1px solid $off-white;
   }
 }
 .date {
-  color: $grey;
+  color: $secondary;
   font-size: .8rem;
+}
+.readmore {
+  color: $danger;
+  padding-right: 10px;
+}
+.readmore, span.title {
+  transition: all .5s ease-in-out;
 }
 .postlink {
   display: block;
   border: none;
   color: $black;
+  transition: all .5s ease-in-out;
 }
 
 footer {
-  margin: 3% 1%;
-  padding: 1% 5%;
   text-align: center;
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  background: $primary;
+  height: 50px;
+  padding: 20px 0;
+  z-index: -1;
+  color: $off-white;
+  // For some reason... Don't know why...
+  &.footer a {
+    color: $off-white;
+  }
 }
 header {
   text-align: center;
+  height: 3em;
+  z-index: -2;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  overflow: hidden;
+}
+.site-title {
+  z-index: -1;
+  position: absolute;
+  width: 100%;
+  background: $secondary;
+  height: 160px;
+  padding: 3% 0;
 }
 h1.site-title a {
   color: $primary;
-  transition: color .25s ease-in-out;
+  transition: all .25s ease-in-out;
   height: 160px;
+  border-bottom: $warning solid 1px;
+  text-transform: uppercase;
+  color: $off-white;
+  font-weight: lighter;
+  text-shadow: 0 0 3px $black;
   &:hover {
+    text-shadow: none;
     color: $black;
   }
 }

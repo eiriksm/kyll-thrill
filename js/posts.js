@@ -3,7 +3,7 @@ if (typeof(c) === 'undefined') {
   if (window && window.localStorage) {
     localStorage.setItem('redirect', window.location.pathname);
   }
-  if (!baseUrl || baseUrl === '') {
+  if (typeof(baseUrl) === 'undefined' || baseUrl === '') {
     var baseUrl = '/';
   }
   window.location.href = baseUrl;

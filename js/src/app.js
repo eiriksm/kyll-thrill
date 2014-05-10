@@ -15,10 +15,11 @@ var list = {
   },
   view: function(ctrl) {
     return m('div.content', [
-      ctrl.list.map(function(post, index) {
+      ctrl.list.map(function(post) {
         return m('div.post', [
           m('a[href="' + baseUrl + post.url + '"].postlink', {config: m.route}, [
             m('h2', [
+              m('span.readmore', '>'),
               m('span.title', post.title)
             ]),
             m('span.date', post.date)
@@ -62,3 +63,25 @@ routeConf['/blog/:year/:month/:day/:file/'] = post;
 routeConf[baseUrl + '/blog/:year/:month/:day/:file'] = post;
 routeConf[baseUrl + '/blog/:year/:month/:day/:file/'] = post;
 m.route(c, baseUrl + '/', routeConf);
+
+// Do some parallax stuff.
+var body = document.body;
+var html = document.documentElement;
+var height = Math.max(body.scrollHeight, body.offsetHeight,
+    html.clientHeight, html.scrollHeight, html.offsetHeight);
+onScrollFunction = function() {
+  height = Math.max(body.scrollHeight, body.offsetHeight,
+    html.clientHeight, html.scrollHeight, html.offsetHeight);
+  var scroll = window.scrollY;
+  var header = document.getElementsByClassName('site-title')[0];
+  var totalScroll = window.innerHeight / 6;
+  header.style.opacity = 1 - (scroll / totalScroll);
+  /* istanbul ignore next */
+  if (scroll >= (height - window.innerHeight - 100)) {
+    document.getElementsByTagName('footer')[0].setAttribute('style',
+      'opacity: ' + (1 + ((scroll - (height - window.innerHeight)) / 100))
+    );
+  }
+};
+
+window.onscroll = onScrollFunction;
