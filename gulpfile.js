@@ -35,20 +35,21 @@ gulp.task('scss', function() {
     .pipe(gulp.dest('themes/' + theme + '/styles/'));
 });
 
+var scriptTask = function(path, filename) {
+  return gulp.src(path)
+    .pipe(uglify())
+    .pipe(concat(filename))
+    .pipe(gulp.dest('build/'));
+};
+
 gulp.task('scripts', function() {
   // Minify and copy all JavaScript.
-  return gulp.src(paths.js)
-    .pipe(uglify())
-    .pipe(concat('app.min.js'))
-    .pipe(gulp.dest('build/'));
+  return scriptTask(paths.js, 'app.min.js');
 });
 
 gulp.task('postscript', function() {
   // Minify and copy post.js
-  return gulp.src(paths.posts)
-    .pipe(uglify())
-    .pipe(concat('posts.min.js'))
-    .pipe(gulp.dest('build/'));
+  return scriptTask(paths.posts, 'posts.min.js');
 });
 
 gulp.task('css', function() {
