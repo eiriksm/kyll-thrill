@@ -1,0 +1,7 @@
+{
+  "globals": {
+    "m": false,
+    "baseUrl": true
+  },
+  "browser": true
+}
