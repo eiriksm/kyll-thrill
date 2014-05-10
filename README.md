@@ -14,12 +14,21 @@ It's a blog tool that clocks in at 5kb and 1 HTTP request.
 - Publish to github (see [Jekyll docs](http://jekyllrb.com/) for info).
 
 ## Customizing
-- Make sure you have `npm` installed.
-- Install gulp with `[sudo] npm install -g gulp`
+- Make sure you have `npm` and `jekyll` installed.
+- Install [gulp](http://gulpjs.com/) with `[sudo] npm install -g gulp`
 - Install all dependencies with `npm install`.
-- Compile for production with `gulp`
+
+## Themes
+By default, kyll-thrill comes with one theme: _thrill_. If you want to make your own theme, you can start with just copying the folder `./themes/thrill` into another folder in `themes`.
+
+Next step is to tell the config you will be using another theme. Edit at the appropriate place in `_config.yml`
+
+At last, make sure you compile templates, javascripts and css from your theme. The workflow is as follows:
+- Compile assets for production with `gulp`
 - All javascript and css are put inline. Compile inline with `gulp inline`.
-- Only edit the `layout_templates/default.html` if you are doing changes. This is the template for compiling inline.
+
+### Note:
+- Remember to only edit `templates/*.html` in your theme if you are doing changes. This is the template for compiling inline.
 - For development this command is handy: `JEKYLL_ENV='development' jekyll serve -w --baseurl ""`
 - Have fun, be awesome.
 
