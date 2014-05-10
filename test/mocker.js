@@ -5,3 +5,5 @@ var appUrls = [
 var baseUrl = '';
 // This is bad, but makes the tests pass.
 document.write('<div id="content"></div>');
+document.write('<div class="site-title"></div>');
+document.write('<footer></footer>');
