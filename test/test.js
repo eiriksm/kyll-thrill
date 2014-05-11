@@ -1,6 +1,5 @@
 /*global c, chai, describe, it */
 (function() {
-  'use strict';
   var assert = chai.assert;
 
   describe('App functionality', function(){
@@ -11,8 +10,8 @@
       var evt;
       var el = c.childNodes[0].childNodes[0].childNodes[0].childNodes[0];
       if (document.createEvent) {
-          evt = document.createEvent("MouseEvents");
-          evt.initMouseEvent("click", true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+        evt = document.createEvent("MouseEvents");
+        evt.initMouseEvent("click", true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
       }
       if (evt) {
         el.dispatchEvent(evt);
@@ -44,6 +43,17 @@
     });
   });
 
-  // TODO: Test redirect. Or just make it better.
+  describe('Disqus stuff', function () {
+    it('Should add disqus widget if defined', function(done) {
+      disqus_shortname = 'kyllthrill';
+      m.route('/blog/2014/03/21/power-of');
+      // See if a script tag is added to head.
+      setTimeout(function() {
+        var h = document.getElementsByTagName('head')[0];
+        assert.equal(h.childNodes[h.childNodes.length - 1].src, 'http://kyllthrill.disqus.com/embed.js');
+        done();
+      }, 100);
+    });
+  });
 
 }());

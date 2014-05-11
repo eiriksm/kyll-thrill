@@ -7,6 +7,9 @@ var appUrls = [];
 {% for post in site.posts %}
   appUrls.push({url: '{{ post.url }}', title: '{{post.title}}', date: '{{post.date | date_to_string}}'});
 {% endfor %}
+{% if site.disqus_shortname %}
+  var disqus_shortname = '{{ site.disqus_shortname }}';
+{% endif %}
 </script>
 {% if site.ga_id %}
 <script>
