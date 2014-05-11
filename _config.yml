@@ -5,6 +5,7 @@ port: 4001
 title: kyll-thrill
 permalink: "/blog/:year/:month/:day/:title"
 exclude: [node_modules]
+# You might want to change this if you are running on another base URL.
 baseurl: /kyll-thrill
 
 # Use this for google analytics.
