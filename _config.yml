@@ -16,7 +16,7 @@ url: https://eiriksm.github.io/kyll-thrill
 ga_id: UA-49256770-1
 
 # Use this for disqus
-# disqus_shortname: myshortname
+disqus_shortname: kyllthrill
 
 # Select a theme. Default: 'thrill'
 theme: thrill
