@@ -5,7 +5,7 @@ kyll-thrill
 [![devDependency Status](https://david-dm.org/eiriksm/kyll-thrill/dev-status.svg)](https://david-dm.org/eiriksm/kyll-thrill#info=devDependencies)
 [![Code Climate](http://img.shields.io/codeclimate/github/eiriksm/kyll-thrill.svg)](https://codeclimate.com/github/eiriksm/kyll-thrill)
 
-It's a blog tool that clocks in at 5kb and 1 HTTP request.
+It's a blog tool that clocks in at < 7kb and 1 HTTP request.
 
 ## Getting started.
 - Clone this repo.
@@ -26,6 +26,10 @@ Next step is to tell the config you will be using another theme. Edit at the app
 At last, make sure you compile templates, javascripts and css from your theme. The workflow is as follows:
 - Compile assets for production with `gulp`
 - All javascript and css are put inline. Compile inline with `gulp inline`.
+- A nifty command is `make compile` which will do the following for you:
+  - `gulp`
+  - `gulp inline`
+  - `JEKYLL_ENV='development' jekyll serve -w --baseurl "" --trace`
 
 ### Note:
 - Remember to only edit `templates/*.html` in your theme if you are doing changes. This is the template for compiling inline.
