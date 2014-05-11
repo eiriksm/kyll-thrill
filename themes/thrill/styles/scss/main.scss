@@ -123,6 +123,18 @@ header {
   height: 160px;
   padding: 3% 0;
 }
+h1.post-title {
+  color: $black;
+  font-weight: 200;
+  font-size: 3.2em;
+  text-align: center;
+  border-bottom: 1px solid $warning;
+  margin-bottom: 0;
+}
+.date.updated {
+  display: block;
+  padding: 1em 0;
+}
 h1.site-title a {
   color: $primary;
   transition: all .25s ease-in-out;

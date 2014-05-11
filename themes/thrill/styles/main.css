@@ -110,6 +110,18 @@ header {
   height: 160px;
   padding: 3% 0; }
 
+h1.post-title {
+  color: #2A2C2B;
+  font-weight: 200;
+  font-size: 3.2em;
+  text-align: center;
+  border-bottom: 1px solid #BEDB39;
+  margin-bottom: 0; }
+
+.date.updated {
+  display: block;
+  padding: 1em 0; }
+
 h1.site-title a {
   color: #004358;
   -webkit-transition: all 0.25s ease-in-out;
