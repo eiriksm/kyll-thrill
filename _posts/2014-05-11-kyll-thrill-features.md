@@ -36,4 +36,4 @@ Since it's all [jekyll](http://jekyllrb.com/docs), you could easily just setup y
 It's easy to make your own theme of kyll-thrill. Just follow the lead from the included theme, __thrill__.
 
 ## Open source
-All the code, this blog and documentation is [open-source and available no github](https://github.com/eiriksm/kyll-thrill)
+All the code, this blog and documentation is [open-source and available on github](https://github.com/eiriksm/kyll-thrill)
