@@ -1,8 +1,9 @@
 /*global c, chai, describe, it */
 (function() {
+  'use strict';
   var assert = chai.assert;
 
-  describe('App functionality', function(){
+  describe('App functionality', function() {
     it('Should be appended a couple of posts in the DOM', function() {
       assert.equal(c.childNodes[0].childNodes.length, 2);
     });
@@ -46,7 +47,7 @@
   describe('Disqus stuff', function () {
     it('Should add disqus widget if defined', function(done) {
       m.route('/');
-      disqus_shortname = 'kyllthrill';
+      window.disqus_shortname = 'kyllthrill';
       m.route('/blog/2014/03/21/power-of');
       // See if a script tag is added to head.
       setTimeout(function() {
