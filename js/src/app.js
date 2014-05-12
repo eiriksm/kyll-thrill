@@ -52,8 +52,13 @@ var post = {
     if (typeof(disqus_shortname) != 'undefined') {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
       dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-      /* istanbul ignore next */
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      /* istanbul ignore else */
+      if (typeof(disqus_dry_run) != 'undefined') {
+        window.appendedScript = dsq.src;
+      }
+      else {
+        document.getElementsByTagName('head')[0].appendChild(dsq);
+      }
     }
     return m('div.content', [
       m('div.post-full', m.trust(ctrl.text))
