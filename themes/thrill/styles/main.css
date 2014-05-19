@@ -25,6 +25,11 @@ body {
 li {
   margin: 5px 30px; }
 
+blockquote {
+  font-style: italic;
+  padding-left: 1em;
+  border-left: 2px solid #004358; }
+
 h1 {
   margin-bottom: 1em; }
 
