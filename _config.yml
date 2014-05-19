@@ -31,7 +31,16 @@ prose:
     - /_layouts
   metadata:
     _posts:
+      - name: "published"
+        field:
+          label: "Published"
+          element: "checkbox"
+          value: "true"
       - name: "layout"
         field:
           element: "hidden"
           value: "post"
+      - name: "title"
+        field:
+          label: "Title"
+          element: "text"
