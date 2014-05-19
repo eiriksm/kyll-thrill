@@ -20,3 +20,18 @@ url: https://eiriksm.github.io/kyll-thrill
 
 # Select a theme. Default: 'thrill'
 theme: thrill
+
+# Prose.io support. If you want to have an editor for your blog, this is a
+# simple solution.
+prose:
+  rooturl: "_posts"
+  media: 'media'
+  ignore:
+    - _config.yml
+    - /_layouts
+  metadata:
+    _posts:
+      - name: "layout"
+        field:
+          element: "hidden"
+          value: "post"

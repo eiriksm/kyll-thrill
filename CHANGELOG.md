@@ -1,3 +1,8 @@
+0.2.2
+- Add some missing styling (li elements and blockquotes).
+- Simple prose.io support, with simple doc hinting about it.
+- Minor tweaks.
+
 0.2.1
 - Support for RSS feeds.
 
