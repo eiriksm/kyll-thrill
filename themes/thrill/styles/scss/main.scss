@@ -24,7 +24,10 @@ img {
 body {
   background-color: #FFF;
   font: 18px Helvetica, Arial, sans-serif;
-  color: #111;
+  color: $black;
+}
+li {
+  margin: 5px 30px;
 }
 
 h1 {

@@ -20,7 +20,10 @@ img {
 body {
   background-color: #FFF;
   font: 18px Helvetica, Arial, sans-serif;
-  color: #111; }
+  color: #2A2C2B; }
+
+li {
+  margin: 5px 30px; }
 
 h1 {
   margin-bottom: 1em; }
