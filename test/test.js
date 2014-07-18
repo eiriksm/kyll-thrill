@@ -57,4 +57,24 @@
     });
   });
 
+  describe('Posts init', function() {
+    it('Should do something', function() {
+      var mw = {location: {}};
+      init(mw);
+      assert.equal(mw.location.href, '/');
+      var val;
+      mw.localStorage = {
+        setItem: function(k, v) {
+          val = v;
+        }
+      };
+      mw.location.pathname = 'mock';
+      init(mw);
+      assert.equal(val, 'mock');
+      mw.baseUrl = 'mocktest';
+      init(mw);
+      assert.equal(mw.location.href, 'mocktest');
+    });
+  });
+
 }());

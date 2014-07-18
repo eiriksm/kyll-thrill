@@ -1,10 +1,13 @@
-if (typeof(c) === 'undefined') {
-  // Add the url to localstorage so we can redirect.
-  if (window && window.localStorage) {
-    localStorage.setItem('redirect', window.location.pathname);
+function init(window) {
+  if (typeof(window.c) === 'undefined') {
+    // Add the url to localstorage so we can redirect.
+    if (window && window.localStorage) {
+      window.localStorage.setItem('redirect', window.location.pathname);
+    }
+    if (typeof(window.baseUrl) === 'undefined' || window.baseUrl === '') {
+      window.baseUrl = '/';
+    }
+    window.location.href = window.baseUrl;
   }
-  if (typeof(baseUrl) === 'undefined' || baseUrl === '') {
-    var baseUrl = '/';
-  }
-  window.location.href = baseUrl;
 }
+init(window);

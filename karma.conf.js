@@ -19,6 +19,7 @@ module.exports = function(config) {
       'js/lib/*.js',
       'test/mocker.js',
       'js/src/*.js',
+      'js/*.js',
       'test/test.js'
     ],
 
@@ -32,7 +33,8 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      'js/src/*.js': 'coverage'
+      'js/src/*.js': 'coverage',
+      'js/*.js': 'coverage'
     },
 
 
