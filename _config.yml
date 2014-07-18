@@ -1,6 +1,6 @@
 name: kyll-thrill
 markdown: redcarpet
-pygments: true
+highlighter: pygments
 port: 4001
 title: kyll-thrill
 permalink: "/blog/:year/:month/:day/:title"
