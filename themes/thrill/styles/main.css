@@ -1,4 +1,3 @@
-
 /*****************************************************************************/
 /*
 /* Common
@@ -78,14 +77,14 @@ a, a:active, a:visited {
 
 .readmore, span.title {
   -webkit-transition: all 0.5s ease-in-out;
-  transition: all 0.5s ease-in-out; }
+          transition: all 0.5s ease-in-out; }
 
 .postlink {
   display: block;
   border: none;
   color: #2A2C2B;
   -webkit-transition: all 0.5s ease-in-out;
-  transition: all 0.5s ease-in-out; }
+          transition: all 0.5s ease-in-out; }
 
 footer {
   text-align: center;
@@ -133,7 +132,7 @@ h1.post-title {
 h1.site-title a {
   color: #004358;
   -webkit-transition: all 0.25s ease-in-out;
-  transition: all 0.25s ease-in-out;
+          transition: all 0.25s ease-in-out;
   height: 160px;
   border-bottom: #BEDB39 solid 1px;
   text-transform: uppercase;
