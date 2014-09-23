@@ -3,7 +3,7 @@ var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var minifyCSS = require('gulp-minify-css');
 var smoosher = require('gulp-smoosher');
-var clean = require('gulp-clean');
+var clean = require('gulp-rimraf');
 var sass = require('gulp-sass');
 var prefix = require('gulp-autoprefixer');
 var theme;
