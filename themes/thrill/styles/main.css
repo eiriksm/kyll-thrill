@@ -131,6 +131,9 @@ h1.post-title {
 h2 {
   font-weight: 200; }
 
+svg.logo path {
+  fill: #35434E; }
+
 .date.updated {
   display: block;
   padding: 1em 0; }
