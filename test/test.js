@@ -51,9 +51,10 @@
       window.disqus_dry_run = true;
       m.route('/blog/2014/03/21/power-of');
       setTimeout(function() {
-        assert.equal(window.appendedScript.indexOf('kyllthrill.disqus.com') > 1, true);
+        var s = window.document.getElementsByTagName('script')[0];
+        assert.equal(s.src, 'http://kyllthrill.disqus.com/embed.js');
         done();
-      }, 100);
+      }, 10);
     });
   });
 
