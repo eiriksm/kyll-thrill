@@ -18,11 +18,10 @@ var list = {
       ctrl.list.map(function(post) {
         return m('div.post', [
           m('a[href="' + baseUrl + post.url + '"].postlink', {config: m.route}, [
+            m('span.date', post.date + ':'),
             m('h2', [
-              m('span.readmore', '>'),
               m('span.title', post.title)
-            ]),
-            m('span.date', post.date)
+            ])
           ])
         ]);
       })

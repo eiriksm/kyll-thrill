@@ -23,8 +23,11 @@ img {
 
 body {
   background-color: #FFF;
-  font: 18px Helvetica, Arial, sans-serif;
+  font: 23px Helvetica, Arial, sans-serif;
+  line-height: 1.6em;
   color: $black;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
 }
 li {
   margin: 5px 30px;
@@ -56,6 +59,7 @@ p {
   width: 98%;
   margin: 0 1%;
   margin: 0 auto;
+  max-width: 1024px;
 }
 a,
 a:active,
@@ -78,15 +82,13 @@ a:visited {
   }
   span.title {
     border-bottom: 1px solid $off-white;
+    font-weight: 200;
+    font-size: 1.3em;
   }
 }
 .date {
   color: $secondary;
-  font-size: .8rem;
-}
-.readmore {
-  color: $danger;
-  padding-right: 10px;
+  font-size: .8em;
 }
 .readmore, span.title {
   transition: all .5s ease-in-out;
@@ -138,6 +140,10 @@ h1.post-title {
   text-align: center;
   border-bottom: 1px solid $warning;
   margin-bottom: 0;
+  line-height: 1.4em;
+}
+h2 {
+  font-weight: 200;
 }
 .date.updated {
   display: block;
@@ -147,8 +153,6 @@ h1.site-title a {
   color: $primary;
   transition: all .25s ease-in-out;
   height: 160px;
-  border-bottom: $warning solid 1px;
-  text-transform: uppercase;
   color: $off-white;
   font-weight: lighter;
   text-shadow: 0 0 3px $black;
