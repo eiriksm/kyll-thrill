@@ -71,7 +71,8 @@ a, a:active, a:visited {
   .post span.title {
     border-bottom: 1px solid #FFFAE7;
     font-weight: 200;
-    font-size: 1.3em; }
+    font-size: 1.3em;
+    line-height: 1.4em; }
 
 .date {
   color: #5B656E;
