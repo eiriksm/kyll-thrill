@@ -1,100 +1,110 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
-/*global appUrls, baseUrl, disqus_shortname */
-'use strict';
+require('./index')(window);
+
+},{"./index":2}],2:[function(require,module,exports){
 var m = require('mithril');
-var c = document.getElementById('content');
-var list = {
-  controller: function() {
-    if (window && window.localStorage && window.localStorage.getItem('redirect')) {
-      var u = window.localStorage.getItem('redirect');
-      window.localStorage.clear('redirect');
-      setTimeout(function() {
-        m.route(u);
-      }, 10);
-    }
-    this.list = [];
-    for (var i = 0; i < appUrls.length; i++) {
-      this.list.push(appUrls[i]);
-    }
-  },
-  view: function(ctrl) {
-    return m('div.content', [
-      ctrl.list.map(function(post) {
-        return m('div.post', [
-          m('a[href="' + baseUrl + post.url + '"].postlink', {config: m.route}, [
-            m('span.date', post.date + ':'),
-            m('h2', [
-              m('span.title', post.title)
-            ])
-          ])
-        ]);
-      })
-    ]);
-  }
-};
-var post = {
-  controller: function() {
-    this.year = m.route.param('year');
-    this.month = m.route.param('month');
-    this.day = m.route.param('day');
-    this.file = m.route.param('file');
-    this.text = '';
-    var ctrl = this;
-    m.request({
-      method: 'GET',
-      url: baseUrl + '/blog/' + this.year + '/' + this.month + '/' + this.day + '/' + this.file + '/index.html',
-      deserialize: function(v) {
-        return v;
+function init(win) {
+  'use strict';
+  var appUrls = win.appUrls;
+  win.c = document.getElementById('content');
+  var list = {
+    controller: function() {
+      if (win && win.localStorage && win.localStorage.getItem('redirect')) {
+        var u = win.localStorage.getItem('redirect');
+        win.localStorage.clear('redirect');
+        setTimeout(function() {
+          m.route(u);
+        }, 10);
       }
-    })
-    .then(function(data) {
-      ctrl.text = data;
-    });
-  },
-  view: function(ctrl) {
-    if (typeof(disqus_shortname) != 'undefined') {
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-      document.getElementsByTagName('head')[0].appendChild(dsq);
+      this.list = [];
+      for (var i = 0; i < appUrls.length; i++) {
+        this.list.push(appUrls[i]);
+      }
+      this.navigate = function(el) {
+        var url = el.getAttribute('href');
+        m.route(url, {}, true);
+      };
+    },
+    view: function(ctrl) {
+      return m('div.content', [
+        ctrl.list.map(function(post) {
+          return m('div.post', [
+            m('a[href="' + win.baseUrl + post.url + '"].postlink', { onclick: (function(){ctrl.navigate(this);return false;})}, [
+              m('span.date', post.date + ':'),
+              m('h2', [
+                m('span.title', post.title)
+              ])
+            ])
+          ]);
+        })
+      ]);
     }
-    return m('div.content', [
-      m('div.post-full', m.trust(ctrl.text))
-    ]);
-  }
-};
-m.route.mode = 'pathname';
-var routeConf = {};
-routeConf['/'] = list;
-routeConf[baseUrl + '/'] = list;
-routeConf['/blog/:year/:month/:day/:file'] = post;
-routeConf['/blog/:year/:month/:day/:file/'] = post;
-routeConf[baseUrl + '/blog/:year/:month/:day/:file'] = post;
-routeConf[baseUrl + '/blog/:year/:month/:day/:file/'] = post;
-m.route(c, baseUrl + '/', routeConf);
+  };
+  var post = {
+    controller: function() {
+      this.year = m.route.param('year');
+      this.month = m.route.param('month');
+      this.day = m.route.param('day');
+      this.file = m.route.param('file');
+      this.text = '';
+      var ctrl = this;
+      m.request({
+        method: 'GET',
+        url: win.baseUrl + '/blog/' + this.year + '/' + this.month + '/' + this.day + '/' + this.file + '/index.html',
+        deserialize: function(v) {
+          return v;
+        }
+      })
+      .then(function(data) {
+        ctrl.text = data;
+      });
+    },
+    view: function(ctrl) {
+      if (typeof(win.disqus_shortname) != 'undefined') {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + win.disqus_shortname + '.disqus.com/embed.js';
+        document.getElementsByTagName('head')[0].appendChild(dsq);
+      }
+      return m('div.content', [
+        m('div.post-full', m.trust(ctrl.text))
+      ]);
+    }
+  };
+  m.route.mode = 'pathname';
+  var routeConf = {};
+  routeConf['/'] = list;
+  routeConf[win.baseUrl + '/'] = list;
+  routeConf['/blog/:year/:month/:day/:file'] = post;
+  routeConf['/blog/:year/:month/:day/:file/'] = post;
+  routeConf[win.baseUrl + '/blog/:year/:month/:day/:file'] = post;
+  routeConf[win.baseUrl + '/blog/:year/:month/:day/:file/'] = post;
+  m.route(win.c, win.baseUrl + '/', routeConf);
 
-// Do some parallax stuff.
-var body = document.body;
-var html = document.documentElement;
-var height = Math.max(body.scrollHeight, body.offsetHeight,
-    html.clientHeight, html.scrollHeight, html.offsetHeight);
-var onScrollFunction = function() {
-  height = Math.max(body.scrollHeight, body.offsetHeight,
-    html.clientHeight, html.scrollHeight, html.offsetHeight);
-  var scroll = window.scrollY;
-  var header = document.getElementsByClassName('site-title')[0];
-  var totalScroll = window.innerHeight / 6;
-  header.style.opacity = 1 - (scroll / totalScroll);
-  /* istanbul ignore next */
-  if (scroll >= (height - window.innerHeight - 100)) {
-    document.getElementsByTagName('footer')[0].setAttribute('style',
-      'opacity: ' + (1 + ((scroll - (height - window.innerHeight)) / 100))
-    );
-  }
-};
+  // Do some parallax stuff.
+  var body = document.body;
+  var html = document.documentElement;
+  var height = Math.max(body.scrollHeight, body.offsetHeight,
+      html.clientHeight, html.scrollHeight, html.offsetHeight);
+  var onScrollFunction = function() {
+    height = Math.max(body.scrollHeight, body.offsetHeight,
+      html.clientHeight, html.scrollHeight, html.offsetHeight);
+    var scroll = win.scrollY;
+    var header = document.getElementsByClassName('site-title')[0];
+    var totalScroll = win.innerHeight / 6;
+    header.style.opacity = 1 - (scroll / totalScroll);
+    /* istanbul ignore next */
+    if (scroll >= (height - win.innerHeight - 100)) {
+      document.getElementsByTagName('footer')[0].setAttribute('style',
+        'opacity: ' + (1 + ((scroll - (height - win.innerHeight)) / 100))
+      );
+    }
+  };
+  win.onscroll = onScrollFunction;
+  win.m = m;
+}
+module.exports = init;
 
-window.onscroll = onScrollFunction;
-
-},{"mithril":2}],2:[function(require,module,exports){
+},{"mithril":3}],3:[function(require,module,exports){
 var m = (function app(window, undefined) {
 	var OBJECT = "[object Object]", ARRAY = "[object Array]", STRING = "[object String]", FUNCTION = "function";
 	var type = {}.toString;
