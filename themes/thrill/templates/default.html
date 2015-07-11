@@ -29,8 +29,7 @@
       <div id="content"></div>
       {{content}}
       {% if site.env == 'development' %}
-        <script src="/js/lib/mithril.js"></script>
-        <script src="/js/src/app.js"></script>
+        <script src="/build/app.js"></script>
       {% else %}
         <!-- smoosh -->
         <script src="../../../build/app.min.js"></script>

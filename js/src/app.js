@@ -1,3 +1,6 @@
+/*global appUrls, baseUrl, disqus_shortname */
+'use strict';
+var m = require('mithril');
 var c = document.getElementById('content');
 var list = {
   controller: function() {
@@ -73,7 +76,7 @@ var body = document.body;
 var html = document.documentElement;
 var height = Math.max(body.scrollHeight, body.offsetHeight,
     html.clientHeight, html.scrollHeight, html.offsetHeight);
-onScrollFunction = function() {
+var onScrollFunction = function() {
   height = Math.max(body.scrollHeight, body.offsetHeight,
     html.clientHeight, html.scrollHeight, html.offsetHeight);
   var scroll = window.scrollY;

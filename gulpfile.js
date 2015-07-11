@@ -1,11 +1,13 @@
+'use strict';
 var gulp = require('gulp');
 var concat = require('gulp-concat');
-var uglify = require('gulp-uglify');
 var minifyCSS = require('gulp-minify-css');
 var smoosher = require('gulp-smoosher');
 var clean = require('gulp-rimraf');
 var sass = require('gulp-sass');
 var prefix = require('gulp-autoprefixer');
+var source = require('vinyl-source-stream');
+var browserify = require('browserify');
 var theme;
 
 // Read config from jekyll config.
@@ -13,14 +15,14 @@ var yaml = require('js-yaml');
 var fs = require('fs');
 try {
   var doc = yaml.safeLoad(fs.readFileSync('./_config.yml', 'utf8'));
-  var theme = doc.theme;
+  theme = doc.theme;
 } catch (e) {
   // Sorry, we have problems. Use default theme.
   theme = 'thrill';
 }
 
 var paths = {
-  js: ['js/lib/*.js', 'js/src/*.js'],
+  js: 'js/src/app.js',
   posts: ['js/posts.js']
 };
 
@@ -36,13 +38,25 @@ gulp.task('scss', function() {
 });
 
 var scriptTask = function(path, filename) {
-  return gulp.src(path)
-    .pipe(uglify())
-    .pipe(concat(filename))
+  var debug = false;
+  if (filename.indexOf('min.js') > 1) {
+    debug = true;
+  }
+  var bundler = browserify(path, {debug: debug});
+  if (debug) {
+    debug = true;
+    bundler.plugin('minifyify', {
+      map: 'map.json', output: __dirname + '/map.json'
+    });
+  }
+  return bundler
+    .bundle()
+    .pipe(source(filename))
     .pipe(gulp.dest('build/'));
 };
 
 gulp.task('scripts', function() {
+  scriptTask(paths.js, 'app.js');
   // Minify and copy all JavaScript.
   return scriptTask(paths.js, 'app.min.js');
 });
