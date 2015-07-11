@@ -50,18 +50,6 @@
     });
   });
 
-  describe('Disqus stuff', function () {
-    it('Should add disqus widget if defined', function(done) {
-      m.route('/');
-      m.route('/blog/2014/03/21/power-of');
-      setTimeout(function() {
-        var s = window.document.getElementsByTagName('script')[0];
-        assert.equal(s.src, 'http://kyllthrill.disqus.com/embed.js');
-        done();
-      }, 10);
-    });
-  });
-
   describe('Posts init', function() {
     it('Should do something', function() {
       var mw = {location: {}};

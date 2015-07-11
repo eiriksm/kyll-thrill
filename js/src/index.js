@@ -56,7 +56,7 @@ function init(win) {
       });
     },
     view: function(ctrl) {
-      if (typeof(win.disqus_shortname) != 'undefined') {
+      if (typeof(win.disqus_shortname) != 'undefined' && !win.DISQUS) {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
         dsq.src = '//' + win.disqus_shortname + '.disqus.com/embed.js';
         document.getElementsByTagName('head')[0].appendChild(dsq);
