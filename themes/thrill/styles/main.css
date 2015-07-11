@@ -55,7 +55,9 @@ p {
   margin: 0 auto;
   max-width: 1024px; }
 
-a, a:active, a:visited {
+a,
+a:active,
+a:visited {
   text-decoration: none;
   color: #000;
   border-bottom: 1px #5B656E solid; }
@@ -76,7 +78,7 @@ a, a:active, a:visited {
 
 .date {
   color: #5B656E;
-  font-size: 0.8em; }
+  font-size: .8em; }
 
 .readmore, span.title {
   -webkit-transition: all 0.5s ease-in-out;
