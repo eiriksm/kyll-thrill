@@ -2,6 +2,6 @@ language: node_js
 node_js:
   - "0.10"
   - "iojs"
-
-script:
+sudo: false
+after_script:
   - make test-cov
