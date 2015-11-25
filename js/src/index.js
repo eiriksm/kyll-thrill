@@ -18,7 +18,7 @@ function init(win) {
       }
       this.navigate = function(el) {
         var url = el.getAttribute('href');
-        m.route(url, {}, true);
+        m.route(url, {}, false);
       };
     },
     view: function(ctrl) {
