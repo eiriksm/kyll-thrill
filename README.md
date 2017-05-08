@@ -1,5 +1,7 @@
 kyll-thrill
 ===========
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/eiriksm/kyll-thrill.svg)](https://greenkeeper.io/)
 [![Build Status](https://travis-ci.org/eiriksm/kyll-thrill.svg?branch=master)](https://travis-ci.org/eiriksm/kyll-thrill)
 [![Coverage Status](https://img.shields.io/coveralls/eiriksm/kyll-thrill.svg)](https://coveralls.io/r/eiriksm/kyll-thrill?branch=master)
 [![devDependency Status](https://david-dm.org/eiriksm/kyll-thrill/dev-status.svg)](https://david-dm.org/eiriksm/kyll-thrill#info=devDependencies)
